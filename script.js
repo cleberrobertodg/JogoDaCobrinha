@@ -53,7 +53,7 @@ function criarCobrinha(){
 
         let newHead = {
             x: snakeX,
-            x: snakeY
+            y: snakeY
         }
 
         snake.unshift(newHead);
