@@ -15,13 +15,13 @@ let food = {
 }
 
 function criarBG(){
-    context.fillStyle = "lightgrey";
+    context.fillStyle = "black";
     context.fillRect(0, 0, 16 * box, 16* box);
 }
 
 function criarCobrinha(){
     for(i=0; i < snake.length; i++) {
-        context.fillStyle = "green";
+        context.fillStyle = "white";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 
@@ -59,7 +59,17 @@ function drawFood(){
         if (direction =="up") snakeY-= box;
         if (direction =="down") snakeY+= box;
 
-        snake.pop();
+        if(snakeX != food.x || snakeY != food.y){
+
+            snake.pop();
+        }
+
+        else{food.x = Math.floor(Math.random() * 15 + 1) * box;
+            food.y = Math.floor(Math.random() * 15 + 1) * box;
+
+        }
+
+        
 
         let newHead = {
             x: snakeX,
