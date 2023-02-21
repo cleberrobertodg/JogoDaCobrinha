@@ -19,6 +19,9 @@ y: 8 * box
 // Define a pontuação inicial como 0
 let pontos = 0;
 
+// Define a velocidade inicial da cobrinha
+let velocidade = 100;
+
 // Cria um elemento HTML <span> para mostrar a pontuação
 let scoreElement = document.createElement("span");
 
@@ -44,7 +47,7 @@ y: Math.floor(Math.random() * 15 + 1) * box
 
 // Define a função para criar o background do jogo
 function criarBG(){
-context.fillStyle = "rgba(173, 216, 230, 0.5)";
+context.fillStyle = "lightblue";
 context.fillRect(0, 0, 16 * box, 16* box);
 }
 
@@ -78,6 +81,7 @@ if(event.keyCode == 40 && direction != "up") direction = "down";
 // Define a função para iniciar o jogo
 function iniciarJogo(){
 
+    
         if(snake[0].x >15 * box && direction == "right") snake[0].x = 0;
         if(snake[0].x <0 && direction == "left") snake[0].x = 16 * box;
         if(snake[0].y >15 * box && direction == "down") snake[0].y = 0;
@@ -113,6 +117,10 @@ function iniciarJogo(){
             pontos +=10;
             scoreElement.textContent = "Pontos: " + pontos;
 
+            //Aumenta a velocidade da cobrinha a cada vez que come o alimento
+            velocidade -= 3;
+        clearInterval(jogo);
+        jogo = setInterval(iniciarJogo, velocidade);
         }
 
         
