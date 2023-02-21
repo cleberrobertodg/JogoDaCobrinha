@@ -44,7 +44,7 @@ y: Math.floor(Math.random() * 15 + 1) * box
 
 // Define a função para criar o background do jogo
 function criarBG(){
-context.fillStyle = "lightblue";
+context.fillStyle = "rgba(173, 216, 230, 0.5)";
 context.fillRect(0, 0, 16 * box, 16* box);
 }
 
