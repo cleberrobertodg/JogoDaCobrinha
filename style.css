@@ -8,3 +8,7 @@ body{
     background: url(img/snake-pass-offer-eiiyj.jpg);
     color: white;
 }
+
+.score{
+    background-color: black;
+}
